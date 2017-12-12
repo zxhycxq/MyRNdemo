@@ -7,7 +7,7 @@ import {
   StyleSheet,
   InteractionManager,
   TextInput,
-  
+NativeModules
 } from 'react-native';
 import { width, height } from '../Util/Size';
 import Gstyles from '../Util/GlobalStyles';
@@ -18,6 +18,13 @@ class AboutUsScreen extends Component {
     title: '关于'
   }*/
   
+  click(){
+    console.log('NFC')
+    // NativeModules.MyMapIntentModule.startActivityByClassname('com.www.ControlPCActivity')
+    NativeModules.MyMapIntentModule.startActivityByClassname("com.myrndemo.Main2Activity")
+  // 继承自ReactContextBaseJavaModule. 那个页面的ReactMethod 方法  | setContentView(R.layout.activity_main2);
+  }
+ 
   static navigationOptions = ({navigation}) => {
     return ({
       headerLeft: (
@@ -36,7 +43,10 @@ class AboutUsScreen extends Component {
   render() {
     return (
         <View style={styles.AboutUs}>
+          <TouchableOpacity
+                            onPress={this.click.bind(this)}>
           <Text style={{color: '#fff', fontSize: 18,marginTop:20,}}>Aboust关于我们页面</Text>
+          </TouchableOpacity>
         </View>
     );
   }
