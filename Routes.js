@@ -20,9 +20,7 @@ import HomeScreen from './src/Home';
 const SettingStack = StackNavigator ({
   Setting: {
     screen: SettingScreen,
-    navigationOptions: {
-      header: null,
-    }
+   
   },
   AboutUs: {screen: AboutUsScreen}
 }, {
