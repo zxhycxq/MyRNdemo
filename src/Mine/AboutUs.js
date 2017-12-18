@@ -47,6 +47,7 @@ class AboutUsScreen extends Component {
                             onPress={this.click.bind(this)}>
           <Text style={{color: '#fff', fontSize: 18,marginTop:20,}}>Aboust关于我们页面</Text>
           </TouchableOpacity>
+          
         </View>
     );
   }
@@ -57,6 +58,7 @@ const styles = StyleSheet.create ({
     // marginTop: 20,
     flex: 1,
     backgroundColor: '#006633',
+    position:'relative'
   },
 })
 

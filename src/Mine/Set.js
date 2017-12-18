@@ -12,6 +12,8 @@ import {
 } from 'react-native';
 import { width, height } from '../Util/Size';
 import BtnCell from '../Common/BtnCell';
+import Icon from 'react-native-vector-icons/Ionicons';
+import Icons from 'react-native-vector-icons/FontAwesome';
 
 
 class SettingScreen extends Component {
@@ -59,6 +61,12 @@ class SettingScreen extends Component {
               title="现在是我的Setting页面"
           />*/}
           <View style={styles.AboutUs}>
+            <Icon name="md-heart" size={30} color="#4F8EF7" />
+            <Icons.Button name="facebook" backgroundColor="#3b5998" >
+              Login with Facebook
+            </Icons.Button>
+            <Icon name="md-tennisball" size={30} color="red" />
+            <Text>Lorem <Icon name="md-happy" color="#4F8EF7" /> Ipsum</Text>
             <TouchableOpacity style={[{marginBottom: 10}]}
                               onPress={this.click.bind (this,0)}
             >
@@ -94,7 +102,17 @@ class SettingScreen extends Component {
           <BtnCell title="30元"
                    onPress={()=>this.click}
           />*/}
-        
+          <View style={{width:90,height:70,backgroundColor:'red',position:'absolute',bottom:-120,left:140,zIndex:100,borderRadius:40,}}>
+  
+            <TouchableOpacity style={[{marginBottom: 10}]}
+                              onPress={this.click.bind (this,2)}
+            >
+              <View
+                  style={[styles.NewPayList, {backgroundColor: this.state.data.list1[2] === true ? 'orange' : '#aaa'}]}>
+                <Text style={[styles.NewPayTxt, {color: '#fff'}]}>2元</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
         </View>
     );
   }
