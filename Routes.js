@@ -6,15 +6,13 @@
     Image,
     StyleSheet,
     Button,
-    TextInput,
-    ToastAndroid,
-    NativeModules
   } from 'react-native';
   import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
   import SetUpScreen from './src/SetUp';
   import AboutUsScreen from './src/Mine/AboutUs';
   import SettingScreen from './src/Mine/Set';
   import HomeScreen from './src/Home';
+  import CodeScreen from './src/Code';
   import Icon from 'react-native-vector-icons/Ionicons';
   
   import { width, height } from './src/Util/Size';
@@ -54,10 +52,21 @@
             ),
       },
     },
+    Code: {
+      screen: CodeScreen,
+      navigationOptions: {
+        tabBarIcon: ({tintColor}) =>
+            (
+                <View style={{width:70,height:70,backgroundColor:'orange'}}>
+                  <View style={{ position: 'absolute', right: -4, top: -2, backgroundColor: 'blue', borderRadius:4, width: 8, height: 8, justifyContent: 'center', alignItems: 'center' }}></View>
+                {/*<Icon name="md-heart" size={30} />*/}
+                </View>
+            ),
+      },
+    },
     My: {
       screen: SettingStack,
       navigationOptions: {
-        
         tabBarIcon: ({tintColor, focused}) =>
             (
                 <View style={styles.item}>
@@ -66,7 +75,6 @@
                       source={require ('./src/img/tab-bar.png')}
                   />
                   <Icon name="md-tennisball" size={30} style={[styles.icon,{color:tintColor}]}/>
-                  <Text style={[styles.label,{color:tintColor}]}>哈哈</Text>
                 </View>
             ),
       },
@@ -81,13 +89,14 @@
     tabBarOptions: {
       style: {
         position:'relative',
-        backgroundColor: '#fff',
+        backgroundColor: '#eee',
         height: 60,
         overflow: 'visible',
         marginTop: 0,
         position: 'relative',
         borderTopWidth: 1,
-        borderTopColor: 'red'
+        borderTopColor: 'red',
+        paddingTop:0,
       },
       activeBackgroundColor: 'orange',
       activeTintColor: '0bb20c',
@@ -96,8 +105,8 @@
       indicatorStyle: {height: 0},
       showIcon: true,
       showlabel: false,
-      // iconStyle: {width: 40, height: 40, overflow: 'visible'},
-      // tabStyle: {paddingTop: 2, paddingBottom: 0},
+      iconStyle: {width: 40, height: 40, overflow: 'visible'},
+      tabStyle: {paddingTop: 2, paddingBottom: 0},
       // labelStyle: {fontSize: 12, marginTop: 0, marginBottom: 5}
     },
     headerMode: 'none'
