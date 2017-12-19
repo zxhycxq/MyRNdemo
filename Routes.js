@@ -14,7 +14,7 @@
   import HomeScreen from './src/Home';
   import CodeScreen from './src/Code';
   import Icon from 'react-native-vector-icons/Ionicons';
-  
+  import AccordionView from './src/Common/Collapsible'
   import { width, height } from './src/Util/Size';
   
   const SettingStack = StackNavigator ({
@@ -53,7 +53,7 @@
       },
     },
     Code: {
-      screen: CodeScreen,
+      screen: AccordionView,
       navigationOptions: {
         tabBarIcon: ({tintColor}) =>
             (

@@ -91,6 +91,7 @@ class SettingScreen extends Component {
                 <Text style={[styles.NewPayTxt, {color: '#fff'}]}>2元</Text>
               </View>
             </TouchableOpacity>
+            
           </View>
           {/*  <BtnCell title="10元"
                     style={{backgroundColor:'#000'}}
