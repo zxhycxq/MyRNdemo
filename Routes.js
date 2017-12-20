@@ -10,6 +10,7 @@
   import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
   import SetUpScreen from './src/SetUp';
   import AboutUsScreen from './src/Mine/AboutUs';
+  import AboutCompanyScreen from './src/Mine/AboutCompany';
   import SettingScreen from './src/Mine/Set';
   import HomeScreen from './src/Home';
   import CodeScreen from './src/Code';
@@ -22,15 +23,13 @@
       screen: SettingScreen,
       
     },
-    AboutUs: {screen: AboutUsScreen}
+    AboutUs: {screen: AboutUsScreen},
+    // AboutCompany: {screen: AboutCompanyScreen}
   }, {
     /* navigationOptions:{
        header:null,
      }*/
   })
-  
-  
-  
   class TabBar extends Component {
     render() {
       return <View style={{width:60,height:40,backgroundColor:'red',position:'absolute',top:20,left:20,zIndex:100,}}></View>;
@@ -53,7 +52,7 @@
       },
     },
     Code: {
-      screen: AccordionView,
+      screen: AboutCompanyScreen,
       navigationOptions: {
         tabBarIcon: ({tintColor}) =>
             (

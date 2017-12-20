@@ -11,41 +11,19 @@ NativeModules
 } from 'react-native';
 import { width, height } from '../Util/Size';
 import Gstyles from '../Util/GlobalStyles';
-import { ActionSheetCustom as ActionSheet } from 'react-native-actionsheet'
+import ActionSheet from 'react-native-actionsheet'
+
+
 const CANCEL_INDEX = 0
 const DESTRUCTIVE_INDEX = 4
+const options = [ 'Cancel', 'Apple', 'Banana', 'Watermelon', 'Durian' ]
+const title = 'Which one do you like?'
 
-const options = [
-  'Cancel',
-  'Apple',
-  <Text style={{color: 'yellow'}}>Banana</Text>,
-  'Watermelon',
-  <Text style={{color: 'red'}}>Durian</Text>
-]
-
-const title = <Text style={{color: '#000', fontSize: 18}}>Which one do you like?</Text>
-
-
-class AboutUsScreen extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      selected: ''
-    }
-    this.handlePress = this.handlePress.bind(this)
-    this.showActionSheet = this.showActionSheet.bind(this)
-  }
+class AboutCompanyScreen extends Component {
+ /* static navigationOptions = {
+    title: '关于'
+  }*/
   
-  showActionSheet() {
-    this.ActionSheet.show()
-  }
-  
-  handlePress(i) {
-    this.setState({
-      selected: i
-    })
-  }
-
   click(){
     console.log('NFC')
     // NativeModules.MyMapIntentModule.startActivityByClassname('com.www.ControlPCActivity')
@@ -68,16 +46,38 @@ class AboutUsScreen extends Component {
       headerTitleStyle: {color: '#fff', alignSelf: 'center'},
     })
   }
+  
+  constructor(props) {
+    super(props)
+    this.state = {
+      selected: ''
+    }
+    this.handlePress = this.handlePress.bind(this)
+    this.showActionSheet = this.showActionSheet.bind(this)
+  }
+  
+  showActionSheet() {
+    this.ActionSheet.show()
+  }
+  
+  handlePress(i) {
+    this.setState({
+      selected: i
+    })
+  }
+  
+  
+  
   render() {
     return (
-        <View style={styles.AboutUs}>
+        <View style={styles.AboutCompany}>
           <TouchableOpacity
                             onPress={this.click.bind(this)}>
-          <Text style={{color: '#fff', fontSize: 18,marginTop:20,}}>Aboust关于我们页面</Text>
+          <Text style={{color: '#fff', fontSize: 18,marginTop:20,}}>11111111111111</Text>
           </TouchableOpacity>
           <View style={styles.wrapper}>
             <Text style={{marginBottom: 20}} >I like {options[this.state.selected]}</Text>
-            <Text style={styles.button} onPress={this.showActionSheet}>Example B</Text>
+            <Text style={styles.button} onPress={this.showActionSheet}>Example A</Text>
             <ActionSheet
                 ref={o => this.ActionSheet = o}
                 title={title}
@@ -93,7 +93,7 @@ class AboutUsScreen extends Component {
 }
 
 const styles = StyleSheet.create ({
-  AboutUs: {
+  AboutCompany: {
     // marginTop: 20,
     flex: 1,
     backgroundColor: '#006633',
@@ -115,4 +115,4 @@ const styles = StyleSheet.create ({
   }
 })
 
-export default AboutUsScreen;
+export default AboutCompanyScreen;
